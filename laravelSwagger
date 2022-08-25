@@ -1,0 +1,317 @@
+ (1)------------------------------ Post Method  use in swagger  ---------------------
+ 
+ /**
+     * @OA\Post(
+     * path="/api/register",
+     * operationId="Register",
+     * tags={"USER APIs"},
+     * description="This API is use for user Registration",
+     *     @OA\RequestBody(
+     *         @OA\MediaType( 
+     *            mediaType="multipart/form-data",
+     *            @OA\Schema(
+     *               type="object",
+     *               required={"name","email", "password", "password_confirmation"},
+     *               @OA\Property(property="name", type="text"),
+     *             
+     *            ),
+     *        ),
+     *    ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="Register Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Register Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(response=400, description="Bad request"),
+     *      @OA\Response(response=404, description="Resource Not Found"),
+     * )
+     */
+	
+	(2)------------------------------ Post Method for array fields  use in swagger  ---------------------
+	
+	 /**
+     * @OA\Post(
+     * path="/api/orders",
+     * security={{"bearer_token":{"*"}}},
+     * tags={"ORDERS APIs"},
+     * description="This API is use for Add users ordes",
+     *     @OA\RequestBody(
+     *        required = true,
+     *        description = "create orders",
+     *        @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(
+     *                property="products",
+     *                type="array",
+     *                @OA\Items(
+     *                      @OA\Property(
+     *                         property="product_id",
+     *                         type="integer",
+     *                         example=""
+     *                      ),
+     *                      @OA\Property(
+     *                         property="quantity",
+     *                         type="integer",
+     *                         example=""
+     *                      ),
+     *                ),
+     *             ),
+     *        ),
+     *     ),
+     
+     *
+     *      @OA\Response(
+     *          response=201,
+     *          description="Token refresh Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Token refresh Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(response=400, description="Bad request"),
+     *      @OA\Response(response=404, description="Resource Not Found"),
+     * ),
+     */
+
+
+(3)------------------------------ Post Method for dropdown fields  use in swagger  ---------------------
+
+
+ /**
+     * @OA\Post(
+     * path="/api/change_order_status/{id}",
+     * security={{"bearer_token":{"*"}}},
+     * tags={"ORDERS APIs"},
+     * description="This API is use for create product",
+     *        @OA\Parameter(
+     *          name="id",
+     *          description="Order id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Parameter(
+     *      name="status",
+     *      in="query",
+     *      @OA\Schema(
+     *        type="text",
+     *       enum= {"Pending", "In Progress","Completed","Cancelled","Failed"},
+     *      )
+     *     ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="Token refresh Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Token refresh Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(response=400, description="Bad request"),
+     *      @OA\Response(response=404, description="Resource Not Found"),
+     * ),
+     */
+	 
+	 
+	 (4)------------------------------ GET Method  use in swagger  ---------------------
+	 
+	 
+	  /**
+     * @OA\Get(
+     * path="/api/get_orders",
+     * security={{"bearer_token":{"*"}}},
+     * tags={"ORDERS APIs"},
+     * description="This API is use for Get All Orders",
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *            mediaType="multipart/form-data",
+     *        ),
+     *    ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="Token refresh Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Token refresh Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(response=400, description="Bad request"),
+     *      @OA\Response(response=404, description="Resource Not Found"),
+     * ),
+     */
+	 
+(5)------------------------------ GET Method for single records  use in swagger  ---------------------
+
+/**
+     * @OA\Get(
+     * path="/api/user/{id}",
+     * security={{"bearer_token":{"*"}}},
+     * tags={"USER APIs"},
+     * description="This API is use for Get the single user detail",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="User id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *            mediaType="multipart/form-data",
+     *        ),
+     *    ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="Token refresh Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Token refresh Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(response=400, description="Bad request"),
+     *      @OA\Response(response=404, description="Resource Not Found"),
+     * ),
+     */
+	 
+	 
+(6)------------------------------ PUT Method  Use in swagger  ---------------------
+
+    /**
+     * @OA\Put(
+     * path="/api/update_profile/{id}",
+     * security={{"bearer_token":{"*"}}},
+     * tags={"USER APIs"},
+     * description="This API is use for update user profile data",
+     *  *      @OA\Parameter(
+     *          name="id",
+     *          description="User id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Parameter(
+     *      name="name",
+     *      in="query",
+     *      @OA\Schema(
+     *           type="text"
+     *      )
+     *     ),
+     *      @OA\Parameter(
+     *      name="email",
+     *      in="query",
+     *      @OA\Schema(
+     *           type="text"
+     *      )
+     *   ),
+     *        @OA\Parameter(
+     *      name="password",
+     *      in="query",
+     *      @OA\Schema(
+     *           type="password"
+     *      )
+     *   ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="Token refresh Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Token refresh Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(response=400, description="Bad request"),
+     *      @OA\Response(response=404, description="Resource Not Found"),
+     * ),
+     */
+	 
+(7)------------------------------ Delete Method  Use in swagger  ---------------------
+
+ /**
+     * @OA\Delete(
+     * path="/api/delete_order/{id}",
+     * security={{"bearer_token":{"*"}}},
+     * tags={"ORDERS APIs"},
+     * description="This API is use for delete orders",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="order id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *            mediaType="multipart/form-data",
+     *        ),
+     *    ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="Token refresh Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Token refresh Successfully",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Unprocessable Entity",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(response=400, description="Bad request"),
+     *      @OA\Response(response=404, description="Resource Not Found"),
+     * ),
+     */
+	 
